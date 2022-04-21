@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    
+    <h1>Tizimga kirding {{user.username}}</h1>
+    <form action="{% url 'logout'%}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout" class="btn btn-danger">
+        
+    </form>
+{%endblock%}

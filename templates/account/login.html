@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block content%}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1 class="text-center">ALEVcoder</h1>
+                    </div>
+                    <div class="card-body">
+                        {% include 'partials/_flash_messages.html'%}
+                        <form action="{%url 'login'%}" method="POST">
+                            {% csrf_token%}
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="text" name="username"
+                                    value="{{data.username}}" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="password" name="password"
+                                    placeholder="Password">
+                            </div>
+                            <input type="submit" class="btn btn-sm btn-block btn-primary" value="Login">
+                        </form>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <hr>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="text-center text-muted">YOKI</p>
+                            </div>
+                            <div class="col-md-5">
+                                <hr>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-sm btn-block btn-primary"><i class="fa fa-facebook"></i> Facebook bilan tizimga kirish</a>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <p>
+                            Yangi account ochish? <a href="{% url 'register' %}">Register</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <p>
+                            {% comment %} Forgot Password? <a href="{% url 'request-reset-email' %}">Reset it here</a> {% endcomment %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+{% endblock %}
